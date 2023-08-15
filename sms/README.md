@@ -1,34 +1,29 @@
-Certainly! Here's the example PHP code presented in a more structured documentation format:
+Absolutely, here's the documentation with examples for sending masking SMS, non-masking SMS, and checking SMS balance using the API.
 
-## Sending SMS and Retrieving SMS Balance Example (PHP)
+## Sending Masking SMS
 
-This example demonstrates how to use the SelfCare IT Guide SMS API in PHP to send a masking SMS and retrieve SMS balance. The example uses cURL for making API requests.
+You can use this API endpoint to send an SMS with a masking phone number.
 
-### Prerequisites
+### Endpoint
 
-Before you begin, make sure you have the following:
+```
+GET /smsApi.php?type=masking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsContent=<message_content>
+```
 
-- Your API key from SelfCare IT Guide.
-- The recipient's mobile number.
+### Parameters
 
-### Installation
+- `type` (required): Set to "masking" to use the masking SMS API.
+- `apiKey` (required): Your API key for authentication.
+- `mobileNo` (required): The recipient's mobile number.
+- `smsContent` (required): The content of the SMS message.
 
-No special installation is required for this example. Ensure you have PHP and cURL enabled on your system.
-
-### Example Code
+### Example
 
 ```php
-<?php
-// Replace with your actual API key
 $apiKey = "your_api_key_here";
-
-// Recipient's mobile number
 $recipientNumber = "recipient_phone_number_here";
+$messageContent = "Hello, this is a masking SMS test message.";
 
-// SMS content
-$messageContent = "Hello, this is a test message from the API.";
-
-// Sending a masking SMS
 $maskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=masking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
 
 $ch = curl_init();
@@ -38,9 +33,65 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 echo "Masking SMS Response:\n";
-echo $response . "\n\n";
+echo $response . "\n";
+```
 
-// Getting SMS balance
+## Sending Non-Masking SMS
+
+This API endpoint allows you to send an SMS without a masking phone number.
+
+### Endpoint
+
+```
+GET /smsApi.php?type=nonMasking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsContent=<message_content>
+```
+
+### Parameters
+
+- `type` (required): Set to "nonMasking" to use the non-masking SMS API.
+- `apiKey` (required): Your API key for authentication.
+- `mobileNo` (required): The recipient's mobile number.
+- `smsContent` (required): The content of the SMS message.
+
+### Example
+
+```php
+$apiKey = "your_api_key_here";
+$recipientNumber = "recipient_phone_number_here";
+$messageContent = "Hello, this is a non-masking SMS test message.";
+
+$nonMaskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=nonMasking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $nonMaskingUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+
+echo "Non-Masking SMS Response:\n";
+echo $response . "\n";
+```
+
+## Checking SMS Balance
+
+Use this API endpoint to retrieve the remaining SMS balance.
+
+### Endpoint
+
+```
+GET /smsApi.php?type=balance&apiKey=<your_api_key>
+```
+
+### Parameters
+
+- `type` (required): Set to "balance" to get the SMS balance.
+- `apiKey` (required): Your API key for authentication.
+
+### Example
+
+```php
+$apiKey = "your_api_key_here";
+
 $balanceUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=balance&apiKey=$apiKey";
 
 $ch = curl_init();
@@ -51,22 +102,6 @@ curl_close($ch);
 
 echo "SMS Balance Response:\n";
 echo $response . "\n";
-?>
 ```
 
-### Usage
-
-1. Replace `"your_api_key_here"` with your actual API key.
-2. Replace `"recipient_phone_number_here"` with the recipient's mobile number.
-3. Run the script using PHP: `php send_sms_example.php`.
-4. The script will send a masking SMS and display the response. Then, it will retrieve SMS balance and display the response.
-
-### Notes
-
-- Make sure to handle errors and responses properly in a production environment.
-- Additional error handling and validation can be added to enhance the code's reliability.
-- Ensure that cURL is enabled in your PHP installation.
-
----
-
-Please ensure to follow best practices for error handling and security when integrating API calls into your application.
+Remember to replace `"your_api_key_here"` and `"recipient_phone_number_here"` with your actual API key and the recipient's phone number, respectively. Also, ensure that you handle API responses properly in a production environment.
