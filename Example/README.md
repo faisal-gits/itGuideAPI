@@ -19,6 +19,7 @@ GET /smsApi?type=masking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsCo
 
 ### Example
 
+- php
 ```php
 $apiKey = "your_api_key_here";
 $recipientNumber = "recipient_phone_number_here";
@@ -34,6 +35,26 @@ curl_close($ch);
 
 echo "Masking SMS Response:\n";
 echo $response . "\n";
+```
+
+- javascript
+```javascript
+const apiKey = "your_api_key_here";
+const mobileNo = "recipient_phone_number_here";
+const smsContent = "Hello, this is a masking SMS test message.";
+
+const apiUrl = `https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=${apiKey}&mobileNo=${mobileNo}&smsContent=${encodeURIComponent(smsContent)}`;
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    console.log("SMS Response:", data);
+    // You can handle the response data here
+  })
+  .catch(error => {
+    console.error("Error sending SMS:", error);
+  });
+
 ```
 
 ## Sending Non-Masking SMS
@@ -55,6 +76,7 @@ GET /smsApi?type=nonMasking&apiKey=<your_api_key>&mobileNo=<recipient_number>&sm
 
 ### Example
 
+- php
 ```php
 $apiKey = "your_api_key_here";
 $recipientNumber = "recipient_phone_number_here";
@@ -70,6 +92,26 @@ curl_close($ch);
 
 echo "Non-Masking SMS Response:\n";
 echo $response . "\n";
+```
+
+- javascript
+```javascript
+const apiKey = "your_api_key_here";
+const mobileNo = "recipient_phone_number_here";
+const smsContent = "Hello, this is a masking SMS test message.";
+
+const apiUrl = `https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=${apiKey}&mobileNo=${mobileNo}&smsContent=${encodeURIComponent(smsContent)}`;
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    console.log("SMS Response:", data);
+    // You can handle the response data here
+  })
+  .catch(error => {
+    console.error("Error sending SMS:", error);
+  });
+
 ```
 
 ## Checking SMS Balance
