@@ -7,7 +7,7 @@ You can use this API endpoint to send an SMS with a masking phone number.
 ### Endpoint
 
 ```
-GET /smsApi.php?type=masking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsContent=<message_content>
+GET /smsApi?type=masking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsContent=<message_content>
 ```
 
 ### Parameters
@@ -24,7 +24,7 @@ $apiKey = "your_api_key_here";
 $recipientNumber = "recipient_phone_number_here";
 $messageContent = "Hello, this is a masking SMS test message.";
 
-$maskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=masking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
+$maskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $maskingUrl);
@@ -43,7 +43,7 @@ This API endpoint allows you to send an SMS without a masking phone number.
 ### Endpoint
 
 ```
-GET /smsApi.php?type=nonMasking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsContent=<message_content>
+GET /smsApi?type=nonMasking&apiKey=<your_api_key>&mobileNo=<recipient_number>&smsContent=<message_content>
 ```
 
 ### Parameters
@@ -60,7 +60,7 @@ $apiKey = "your_api_key_here";
 $recipientNumber = "recipient_phone_number_here";
 $messageContent = "Hello, this is a non-masking SMS test message.";
 
-$nonMaskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=nonMasking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
+$nonMaskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi?type=nonMasking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $nonMaskingUrl);
@@ -79,7 +79,7 @@ Use this API endpoint to retrieve the remaining SMS balance.
 ### Endpoint
 
 ```
-GET /smsApi.php?type=balance&apiKey=<your_api_key>
+GET /smsApi?type=balance&apiKey=<your_api_key>
 ```
 
 ### Parameters
@@ -92,7 +92,7 @@ GET /smsApi.php?type=balance&apiKey=<your_api_key>
 ```php
 $apiKey = "your_api_key_here";
 
-$balanceUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=balance&apiKey=$apiKey";
+$balanceUrl = "https://selfcare.itguidebd.com/public_api/smsApi?type=balance&apiKey=$apiKey";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $balanceUrl);

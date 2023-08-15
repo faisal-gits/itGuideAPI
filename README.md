@@ -1,6 +1,6 @@
 # API Documentation
 
-Welcome to the API documentation for the selfcare.itguidebd.com public APIs. This documentation will provide you with details on how to access and utilize the available endpoints to manage user information and send SMS messages. All responses from these APIs will be in JSON format.
+Welcome to the API documentation for the Self-Care itGuide public APIs. This documentation will provide you with details on how to access and utilize the available endpoints to manage user information and send SMS messages. All responses from these APIs will be in JSON format.
 
 ## Base URL
 
@@ -12,27 +12,27 @@ https://selfcare.itguidebd.com/public_api/
 
 Retrieve user information using the provided API key.
 
-**Endpoint:** `pubApi.php`
+**Endpoint:** `pubApi`
 
 **Method:** GET
 
-**URL:** `base_url/pubApi.php?apiKey=your_api_key`
+**URL:** `base_url/pubApi?apiKey=your_api_key`
 
 **Example:**
 
 ```
-GET https://selfcare.itguidebd.com/public_api/pubApi.php?apiKey=xxxxxxxxxxxx
+GET https://selfcare.itguidebd.com/public_api/pubApi?apiKey=xxxxxxxxxxxx
 ```
 
 ## SMS API Masking
 
 Send an SMS message using masking.
 
-**Endpoint:** `smsApi.php?type=masking`
+**Endpoint:** `smsApi?type=masking`
 
 **Method:** POST
 
-**URL:** `base_url/smsApi.php?type=masking&apiKey=your_api_key&mobileNo=recipient_number&smsContent=message_content`
+**URL:** `base_url/smsApi?type=masking&apiKey=your_api_key&mobileNo=recipient_number&smsContent=message_content`
 
 **Parameters:**
 
@@ -43,18 +43,18 @@ Send an SMS message using masking.
 **Example:**
 
 ```
-POST https://selfcare.itguidebd.com/public_api/smsApi.php?type=masking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
+POST https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
 ```
 
 ## SMS API Non-Masking
 
 Send an SMS message without masking.
 
-**Endpoint:** `smsApi.php?type=nonMasking`
+**Endpoint:** `smsApi?type=nonMasking`
 
 **Method:** POST
 
-**URL:** `base_url/smsApi.php?type=nonMasking&apiKey=your_api_key&mobileNo=recipient_number&smsContent=message_content`
+**URL:** `base_url/smsApi?type=nonMasking&apiKey=your_api_key&mobileNo=recipient_number&smsContent=message_content`
 
 **Parameters:**
 
@@ -65,18 +65,18 @@ Send an SMS message without masking.
 **Example:**
 
 ```
-POST https://selfcare.itguidebd.com/public_api/smsApi.php?type=nonMasking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
+POST https://selfcare.itguidebd.com/public_api/smsApi?type=nonMasking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
 ```
 
 ## SMS Balance
 
 Retrieve SMS balance information.
 
-**Endpoint:** `smsApi.php?type=balance`
+**Endpoint:** `smsApi?type=balance`
 
 **Method:** GET
 
-**URL:** `base_url/smsApi.php?type=balance&apiKey=your_api_key`
+**URL:** `base_url/smsApi?type=balance&apiKey=your_api_key`
 
 **Parameters:**
 
@@ -85,7 +85,7 @@ Retrieve SMS balance information.
 **Example:**
 
 ```
-GET https://selfcare.itguidebd.com/public_api/smsApi.php?type=balance&apiKey=xxxxxxxxxxxx
+GET https://selfcare.itguidebd.com/public_api/smsApi?type=balance&apiKey=xxxxxxxxxxxx
 ```
 
 ## Response Format

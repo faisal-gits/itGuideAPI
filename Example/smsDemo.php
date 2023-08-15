@@ -9,7 +9,7 @@ $recipientNumber = "recipient_phone_number_here";
 $messageContent = "Hello, this is a test message from the API.";
 
 // Sending a masking SMS
-$maskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=masking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
+$maskingUrl = "https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=$apiKey&mobileNo=$recipientNumber&smsContent=" . urlencode($messageContent);
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $maskingUrl);
@@ -21,7 +21,7 @@ echo "Masking SMS Response:\n";
 echo $response . "\n\n";
 
 // Getting SMS balance
-$balanceUrl = "https://selfcare.itguidebd.com/public_api/smsApi.php?type=balance&apiKey=$apiKey";
+$balanceUrl = "https://selfcare.itguidebd.com/public_api/smsApi?type=balance&apiKey=$apiKey";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $balanceUrl);
