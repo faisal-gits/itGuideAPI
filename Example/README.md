@@ -100,7 +100,7 @@ const apiKey = "your_api_key_here";
 const mobileNo = "recipient_phone_number_here";
 const smsContent = "Hello, this is a masking SMS test message.";
 
-const apiUrl = `https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=${apiKey}&mobileNo=${mobileNo}&smsContent=${encodeURIComponent(smsContent)}`;
+const apiUrl = `https://selfcare.itguidebd.com/public_api/smsApi?type=nonMasking&apiKey=${apiKey}&mobileNo=${mobileNo}&smsContent=${encodeURIComponent(smsContent)}`;
 
 fetch(apiUrl)
   .then(response => response.json())
