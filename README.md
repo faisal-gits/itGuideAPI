@@ -21,7 +21,7 @@ Retrieve user information using the provided API key.
 **Example:**
 
 ```
-GET https://selfcare.itguidebd.com/public_api/pubApi.php?apiKey=fdefb9101229e1abaed45c0e69126ea4
+GET https://selfcare.itguidebd.com/public_api/pubApi.php?apiKey=xxxxxxxxxxxx
 ```
 
 ## SMS API Masking
