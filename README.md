@@ -97,14 +97,18 @@ All responses from the APIs will be in JSON format.
 ```json
 {
     "status": "success",
-    "message": "SMS sent successfully.",
-    "data": {
-        "sms_balance": 500,
-        "remaining_balance": 490
-    }
+    "message": "SMS sent successfully."
 }
 ```
 
+```json
+{
+    "status": "success",
+    "message": "Balance retrieved successfully.",
+    "masking": "450",
+    "non-masking": "500"
+}
+```
 ## Error Handling
 
 In case of errors, the API will return a response in the following format:
