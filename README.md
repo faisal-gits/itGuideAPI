@@ -120,6 +120,13 @@ In case of errors, the API will return a response in the following format:
 }
 ```
 
+```json
+{
+    "status": "error",
+    "message": "An error occurred while checking the balance."
+}
+```
+
 Please make sure to handle potential errors appropriately based on the response status and message.
 
 ---
