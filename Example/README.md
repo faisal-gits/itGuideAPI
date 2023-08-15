@@ -131,6 +131,7 @@ GET /smsApi?type=balance&apiKey=<your_api_key>
 
 ### Example
 
+- php
 ```php
 $apiKey = "your_api_key_here";
 
@@ -144,6 +145,24 @@ curl_close($ch);
 
 echo "SMS Balance Response:\n";
 echo $response . "\n";
+```
+
+- javascript
+```javascript
+const apiKey = "your_api_key_here";
+
+const balanceUrl = `https://selfcare.itguidebd.com/public_api/smsApi?type=balance&apiKey=${apiKey}`;
+
+fetch(balanceUrl)
+  .then(response => response.json())
+  .then(data => {
+    console.log("SMS Balance Response:", data);
+    // You can handle the balance response data here
+  })
+  .catch(error => {
+    console.error("Error fetching SMS balance:", error);
+  });
+
 ```
 
 Remember to replace `"your_api_key_here"` and `"recipient_phone_number_here"` with your actual API key and the recipient's phone number, respectively. Also, ensure that you handle API responses properly in a production environment.
