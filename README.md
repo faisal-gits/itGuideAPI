@@ -1,6 +1,6 @@
 # API Documentation
 
-Welcome to the API documentation for the Self-Care itGuide public APIs. This documentation will provide you with details on how to access and utilize the available endpoints to manage user information and send SMS messages. All responses from these APIs will be in JSON format.
+Welcome to the API documentation for the itGuide Self-Care public APIs. This documentation will provide you with details on how to access and utilize the available endpoints to manage user information and send SMS messages. All responses from these APIs will be in JSON format.
 
 ## Base URL
 
@@ -131,4 +131,4 @@ Please make sure to handle potential errors appropriately based on the response 
 
 ---
 
-This concludes the documentation for the Self-Care itGuide public APIs. If you have any questions or encounter any issues, please contact our support team at info@itguidebd.com.
+This concludes the documentation for the itGuide Self-Care public APIs. If you have any questions or encounter any issues, please contact our support team at info@itguidebd.com.
