@@ -131,4 +131,4 @@ Please make sure to handle potential errors appropriately based on the response 
 
 ---
 
-This concludes the documentation for the selfcare.itguidebd.com public APIs. If you have any questions or encounter any issues, please contact our support team at info@itguidebd.com.
+This concludes the documentation for the Self-Care itGuide public APIs. If you have any questions or encounter any issues, please contact our support team at info@itguidebd.com.
