@@ -1,98 +1,87 @@
-# API Documentation
+# SMS API Documentation
 
-Welcome to the API documentation for the itGuide Self-Care public APIs. This documentation will provide you with details on how to access and utilize the available endpoints to manage user information and send SMS messages. All responses from these APIs will be in JSON format.
+## Introduction
+
+The SMS API provided by itGuide Bangladesh allows you to send SMS messages using two different methods: Non-Masking and Masking. Additionally, you can check your account balance using the Balance Check API. All responses from the API are in JSON format.
 
 ## Base URL
 
 ```
-https://selfcare.itguidebd.com/public_api/
+https://selfcare.itguidebd.com/public_api/smsApi
 ```
 
-## User Information
+## API Endpoints
 
-Retrieve user information using the provided API key.
+### Send SMS - Non-Masking
 
-**Endpoint:** `pubApi`
-
-**Method:** GET
-
-**URL:** `base_url/pubApi?apiKey=your_api_key`
-
-**Example:**
+Sends an SMS message without masking the sender's identity.
 
 ```
-GET https://selfcare.itguidebd.com/public_api/pubApi?apiKey=xxxxxxxxxxxx
+Endpoint: /public_api/smsApi?type=nonMasking
+Method: GET
 ```
 
-## SMS API Masking
+#### Parameters
 
-Send an SMS message using masking.
+- `apiKey` (string, required): Your API key for authentication.
+- `mobileNo` (string, required): The recipient's mobile number.
+- `smsContent` (string, required): The content of the SMS message.
 
-**Endpoint:** `smsApi?type=masking`
+#### Example
 
-**Method:** POST
-
-**URL:** `base_url/smsApi?type=masking&apiKey=your_api_key&mobileNo=recipient_number&smsContent=message_content`
-
-**Parameters:**
-
-- `apiKey`: Your API key (string)
-- `mobileNo`: Recipient's mobile number (string)
-- `smsContent`: Content of the SMS message (string)
-
-**Example:**
-
-```
-POST https://selfcare.itguidebd.com/public_api/smsApi?type=masking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
+```plaintext
+GET /public_api/smsApi?type=nonMasking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
 ```
 
-## SMS API Non-Masking
+### Send SMS - Masking
 
-Send an SMS message without masking.
-
-**Endpoint:** `smsApi?type=nonMasking`
-
-**Method:** POST
-
-**URL:** `base_url/smsApi?type=nonMasking&apiKey=your_api_key&mobileNo=recipient_number&smsContent=message_content`
-
-**Parameters:**
-
-- `apiKey`: Your API key (string)
-- `mobileNo`: Recipient's mobile number (string)
-- `smsContent`: Content of the SMS message (string)
-
-**Example:**
+Sends an SMS message with a masked sender's identity.
 
 ```
-POST https://selfcare.itguidebd.com/public_api/smsApi?type=nonMasking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
+Endpoint: /public_api/smsApi?type=masking
+Method: GET
 ```
 
-## SMS Balance
+#### Parameters
 
-Retrieve SMS balance information.
+- `apiKey` (string, required): Your API key for authentication.
+- `mobileNo` (string, required): The recipient's mobile number.
+- `smsContent` (string, required): The content of the SMS message.
 
-**Endpoint:** `smsApi?type=balance`
+#### Example
 
-**Method:** GET
+```plaintext
+GET /public_api/smsApi?type=masking&apiKey=xxxxxxxxxxxx&mobileNo=xxxxxxxx&smsContent=xxxxxxxxxx
+```
 
-**URL:** `base_url/smsApi?type=balance&apiKey=your_api_key`
+### Balance Check
 
-**Parameters:**
-
-- `apiKey`: Your API key (string)
-
-**Example:**
+Retrieves the account balance for both masking and non-masking SMS.
 
 ```
-GET https://selfcare.itguidebd.com/public_api/smsApi?type=balance&apiKey=xxxxxxxxxxxx
+Endpoint: /public_api/smsApi?type=balance
+Method: GET
+```
+
+#### Parameters
+
+- `apiKey` (string, required): Your API key for authentication.
+
+#### Example
+
+```plaintext
+GET /public_api/smsApi?type=balance&apiKey=xxxxxxxxxxxx
 ```
 
 ## Response Format
 
-All responses from the APIs will be in JSON format.
+All responses from the APIs will be in JSON format. Depending on the API endpoint, the response structure will differ.
 
-**Example Response:**
+### Success Response
+
+#### Send SMS API Responses
+
+For Non-Masking and Masking API:
 
 ```json
 {
@@ -100,6 +89,8 @@ All responses from the APIs will be in JSON format.
     "message": "SMS sent successfully."
 }
 ```
+
+#### Balance Check API Response
 
 ```json
 {
@@ -109,9 +100,8 @@ All responses from the APIs will be in JSON format.
     "non-masking": "500"
 }
 ```
-## Error Handling
 
-In case of errors, the API will return a response in the following format:
+### Error Response
 
 ```json
 {
@@ -120,6 +110,8 @@ In case of errors, the API will return a response in the following format:
 }
 ```
 
+#### Balance Check Error Response
+
 ```json
 {
     "status": "error",
@@ -127,8 +119,12 @@ In case of errors, the API will return a response in the following format:
 }
 ```
 
-Please make sure to handle potential errors appropriately based on the response status and message.
+## Notes
 
----
+- The API responses include a "status" field to indicate success or error.
+- The "message" field provides a human-readable description of the outcome.
+- In the balance check response, the "masking" and "non-masking" fields provide the available balances for each type of SMS.
 
-This concludes the documentation for the itGuide Self-Care public APIs. If you have any questions or encounter any issues, please contact our support team at info@itguidebd.com.
+## Conclusion
+
+This documentation provides details on using the SMS API for sending messages and checking account balances. Make sure to use the correct API endpoint, provide the required parameters, and handle the response accordingly. If you encounter any issues, refer to the provided error messages for troubleshooting.
