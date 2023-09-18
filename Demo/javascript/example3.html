@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Sending</title>
+</head>
+
+<body>
+    <button id="sendSmsButton">Send SMS</button>
+
+    <script>
+        // Replace 'xxxxxxxxxxxx' with your actual API key
+        const apiKey = 'xxxxxxxxxxxx';
+        const apiUrl = 'https://selfcare.itguidebd.com/public_api/smsApi';
+
+        // Function to send an SMS with masking
+        function sendSmsWithMasking() {
+            const mobileNo = 'xxxxxxxx'; // Replace with the recipient's mobile number
+            const smsContent = 'xxxxxxxxxx'; // Replace with the SMS content
+
+            // Create a FormData object to send POST data
+            const formData = new FormData();
+            formData.append('type', 'masking'); // masking OR nonMasking
+            formData.append('apiKey', apiKey);
+            formData.append('mobileNo', mobileNo);
+            formData.append('smsContent', smsContent);
+
+            // Send the POST request to the API
+            fetch(apiUrl, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Check the response for success or error
+                    if (data.status === 'success') {
+                        alert('SMS sent successfully');
+                    } else {
+                        alert(`Error: ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Attach the sendSmsWithMasking function to a button click event
+        document.getElementById('sendSmsButton').addEventListener('click', sendSmsWithMasking);
+    </script>
+</body>
+</html>
