@@ -4,7 +4,7 @@ Welcome to the API documentation for the itGuide Self-Care public APIs. This doc
 
 ## Table of Contents
 
-1. [SMS API](/tree/main/SMS-API)
-2. [WHOIS API](/tree/main/WHOIS-API)
+1. [SMS API](SMS-API)
+2. [WHOIS API](WHOIS-API)
 
 Feel free to explore the specific sections for each API for detailed information and usage guidelines. If you have any further questions or concerns, please contact us.
