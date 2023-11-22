@@ -1,11 +1,8 @@
-Certainly! Below is a simple example of how you might structure a WHOIS API documentation file in Markdown format, suitable for a Git repository:
-
-```markdown
 # WHOIS API Documentation
 
-## Overview
+## Introduction
 
-Integrate WHOIS functionality into your application using our comprehensive WHOIS API. Retrieve detailed information about a domain with a simple API call.
+The WHOIS API provided by itGuide Bangladesh allows you to check domain and domain information. All responses from the API are in JSON format.
 
 ## Base URL
 
